@@ -6,13 +6,13 @@ install.packages("pak")
 packages <- c(
   "fs",
   "giscoR",
-  "mapview",
+  "mapview", # interactive maps
   "rsi",
   "rstac",
   "sf",
   "terra",
-  "tictoc",
-  "tidyterra",
+  "tictoc", # controll / check how long does a fct takes to run 
+  "tidyterra", # works with the terra package
   "tidyverse"
 )
 
