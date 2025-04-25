@@ -89,10 +89,28 @@ mapview(selected_muni_sf)
 ## 3.2. Get satellite image -------------------
 
 ## Download Sentinel-2 image
+sentinal_path <- get_sentinel2_imagery(
+    aoi             = selected_muni_sf, 
+    start_date      = "2024-05-04",
+    end_date        = "2024-05-05", 
+    output_filename = str_glue("data/sentinel/{selected_muni_sf$id}.tif")
+    
+)
 
+
+## Read 
+sentinal_sr <- rast(sentinal_path)
 
 ## Visualize
+(sentinal_sr / 10000) %>% 
+    plotRGB(4,3,2, stretch = "lin")
 
+plot(
+    st_geometry(selected_muni_sf), 
+    add     = TRUE, 
+    borders = "red", 
+    lwd     = 2
+)
 
 # 4. Export ---------------------------------------------------------------
 
